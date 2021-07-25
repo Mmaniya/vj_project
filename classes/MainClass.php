@@ -33,9 +33,9 @@ class MainClass {
 
     public function get_user_details(){               
         $qry ="select id, count(*) total,
-            sum(case when if_credited = 'Y' then 1 else 0 end) active_users,
-            sum(case when if_credited = 'N' then 1 else 0 end) closed_users,
-            sum(case when status = 'I' then 1 else 0 end) waiting_users
+            sum(case when approved_status = 'Y' then 1 else 0 end) active_users,
+            sum(case when approved_status = 'N' then 1 else 0 end) closed_users,
+            sum(case when approved_status = '' then 1 else 0 end) waiting_users
             from ".TBL_USERS."";
         return  dB::sExecuteSql($qry);  
     }

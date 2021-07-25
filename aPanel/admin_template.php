@@ -69,7 +69,7 @@ if ($_SESSION['useremail'] == '' || $_SESSION['username'] == '') {
 
                     <div class="navbar-logo">
                         <a class="mobile-menu" id="mobile-collapse" href="#">
-                            <i class="feather icon-menu"></i>
+                            <i class="feather icon-menu icon-toggle-right"></i>
                         </a>
                         <a href="<?php ADMIN_URL ?>dashboard.php">          
                                 <h4>ADMIN PANEL</h4>
@@ -116,26 +116,55 @@ if ($_SESSION['useremail'] == '' || $_SESSION['username'] == '') {
                     <nav class="pcoded-navbar">
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="pcoded-navigatio-lavel">Navigation</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
+
+
+                            <ul class="pcoded-item pcoded-left-item" item-border="true" item-border-style="none" subitem-border="true">
+                                <li class="active">
                                     <a href="<?php echo ADMIN_URL ?>dashboard.php">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a href="<?php echo ADMIN_URL ?>users.php">
+                                <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                    <span class="pcoded-mtext">Users</span>
+                                    <span class="pcoded-badge label label-warning">NEW</span>
+                                    </a>
+
+                                    <!-- <a href="<?php echo ADMIN_URL ?>users.php">
                                         <span class="pcoded-micon"><i class="fa fa-users"></i></span>
                                         <span class="pcoded-mtext">Users</span>
-                                    </a>
+                                    </a> -->
+                                    <ul class="pcoded-submenu">
+                                    
+                                        <li class="">
+                                            <a href="<?php echo ADMIN_URL ?>pending_users.php">
+                                            <span class="pcoded-mtext">Pending Users</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="<?php echo ADMIN_URL ?>active_users.php">
+                                            <span class="pcoded-mtext">Active Users</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="<?php echo ADMIN_URL ?>closed_users.php">
+                                            <span class="pcoded-mtext">Closed Users</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="">
+                                            <a href="<?php echo ADMIN_URL ?>users.php">
+                                            <span class="pcoded-mtext">Total Users</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
-                                <!-- <li class="">
-                                    <a href="<?php echo ADMIN_URL ?>user-view.php">
-                                        <span class="pcoded-micon"><i class="fa fa-eye"></i></span>
-                                        <span class="pcoded-mtext">Users</span>
-                                    </a>
-                                </li> -->
+                           
                             </ul>
+                           
                         </div>
                     </nav>
                     <div class="pcoded-content">

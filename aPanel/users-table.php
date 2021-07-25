@@ -9,15 +9,22 @@ $columnIndex = $_POST['order'][0]['column']; // Column index
 $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
 $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
 $searchValue = $_POST['search']['value']; 
-
+$closeusers = $_POST['closedusers'];
 
 $subQry = array();
-if($_POST['if_deposited'] != ''){
-    $subQry[] = "if_deposited =".$_POST['searchByState'];
+if($_POST['closedusers'] == 'true'){
+    $subQry[] = "approved_status ='C'";
 }
 
+if($_POST['activeusers'] == 'true'){
+    $subQry[] = "approved_status ='Y'";
+}
+
+if($_POST['pendingusers'] == 'true'){
+    $subQry[] = "approved_status ='N'";
+}
 if($columnName == '6'){
-   $orderby = " ORDER BY approved_status ".$columnSortOrder;
+   $orderby = " ORDER BY approved_status  ".$columnSortOrder;
 }else{
    $orderby = " ORDER BY id  ASC";
 }
@@ -71,6 +78,8 @@ foreach ($result as $key =>$value){
 
     if($value->approved_status == 'N'){
         $action  = '<a href="javascript:void(0);" onclick="approvedusers('.$value->id.')" class="btn btn-grd-success btn-sm" >Approve</a>';
+    } else if($value->approved_status == 'C'){
+        $action  = '<label class="label label-danger">Closed</label>';
     }else{
         $action  = '<label class="label label-inverse">Approved</label>';
     }
@@ -83,6 +92,8 @@ foreach ($result as $key =>$value){
         $amount = '<hr><h5 style="color:green"> Earning money till date : '.$rsParent->amount_credited.'/-RS </h5>';
     }else if(empty($rsParent->amount_credited) && $value->approved_status == 'Y'){
         $amount = '<hr><h5 style="color:orange"> Earning money till date : 0 /-RS </h5>';
+    }else if($rsParent->amount_credited && $value->approved_status == 'C'){
+        $amount = '<hr><h5 style="color:#01dbdf"> Total Earning Money  : '.$rsParent->amount_credited.'/-RS </h5><br><h5 style="color:#01dbdf"> Account Closed Date  : '.$rsParent->existing_date.' </h5>';
     }else{
         $amount = '<hr><h5 style="color:red">Pending Approved Request.! </h5>';
     }

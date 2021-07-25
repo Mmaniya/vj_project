@@ -1,7 +1,5 @@
-<?php function main() { 
-    //$mainObj = new MainClass;
-    ?>
-    <h2>Total Users</h2>
+<?php function main() {     ?>
+    <h2>Closed Users</h2>
     <hr>
 <div class="customerstatics"></div>
 
@@ -13,7 +11,7 @@
             </div>
             <div class="card-block">
                 <div class="dt-responsive table-responsive">
-                    <table id="users-table" class="table table-striped table-bordered nowrap display" style="width:100%">
+                    <table id="pending-users-table" class="table table-striped table-bordered nowrap display" style="width:100%">
                         <thead>
                             <tr>
                                 <th>S.NO</th>

@@ -98,6 +98,10 @@ if ($action == 'approved_users') {
                                 $param['amount_credited'] = $level4->amount_credited + 100;
                                 $where = array('id' => $level4->id);
                                 $result = Table::updateData(array('tableName' => TBL_APPROVED_USERS, 'fields' => $param, 'where' => $where, 'showSql' => 'N'));
+                            }else{
+                                $param['approved_status'] = 'C';
+                                $where = array('userid' =>$level4->userid );
+                                $result = Table::updateData(array('tableName' => TBL_USERS, 'fields' => $param, 'where' => $where, 'showSql' => 'N'));
                             }
                             break;  
                         }  
@@ -116,4 +120,95 @@ if ($action == 'approved_users') {
 
     exit();
 }
-?>
+
+if($action == 'customerstatics'){ 
+
+    $qry ="select id, count(*) total,
+    sum(case when approved_status = 'Y' then 1 else 0 end) active_users,
+    sum(case when approved_status = 'C' then 1 else 0 end) closed_users,
+    sum(case when approved_status = 'N' then 1 else 0 end) waiting_users
+    from ".TBL_USERS."";
+    $result = dB::sExecuteSql($qry);  
+    ?>
+    <div class="row">
+        <div class="col-xl-3 col-md-4">
+            <div class="card bg-c-yellow update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-12">
+                            <h6 class="text-white m-b-10">Total Users</h6>
+                            <h4 class="text-white">
+                                <?php echo $result->total; ?>
+                            </h4>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-4">
+            <div class="card bg-c-green update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-12">
+                            <h6 class="text-white m-b-10">Active Users</h6>
+                            <h4 class="text-white">
+                                <?php echo $result->active_users; ?>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-4">
+            <div class="card bg-c-lite-green update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-12">
+                            <h6 class="text-white m-b-10">Closed Users</h6>
+                            <h4 class="text-white">
+                                <?php echo $result->closed_users; ?>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-4">
+            <div class="card bg-c-pink update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-12">
+                            <h6 class="text-white m-b-10">Waiting Users</h6>
+                            <h4 class="text-white">
+                                <?php echo $result->waiting_users; ?>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <?php }
+
+    if($action == 'accountstatics'){ 
+    
+    $qry = "SELECT sum(deposit_amt) as total FROM `tbl_users`";
+    $result = dB::sExecuteSql($qry);   ?>
+    <div class="row">
+        <div class="col-xl-3 col-md-4">
+            <div class="card bg-c-green update-card">
+                <div class="card-block">
+                    <div class="row align-items-end">
+                        <div class="col-12">
+                            <h6 class="text-white m-b-10">Credited Amount</h6>
+                            <h4 class="text-white">
+                                <?php echo $result->total; ?>/-Rs
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
