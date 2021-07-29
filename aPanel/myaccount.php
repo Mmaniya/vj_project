@@ -1,5 +1,5 @@
 <?php 
-require "includes.php";
+require "../includes.php";
 if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
     foreach ($_SESSION as $K => $V) {
         unset($_SESSION[$K]);
@@ -20,24 +20,24 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
 <title>Fionca - HTML 5 Template Preview</title>
 
 <!-- Fav Icon -->
-<link rel="icon" href="assets/images/favicon-2.ico" type="image/x-icon">
+<link rel="icon" href="../assets/images/favicon-2.ico" type="image/x-icon">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&amp;display=swap" rel="stylesheet">
 
 <!-- Stylesheets -->
-<link href="assets/css/font-awesome-all.css" rel="stylesheet">
-<link href="assets/css/flaticon.css" rel="stylesheet">
-<link href="assets/css/owl.css" rel="stylesheet">
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="assets/css/animate.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/rtl.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
-<link href="assets/js/alert//sweetalert2.min.css" rel="stylesheet">
+<link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="../assets/css/flaticon.css" rel="stylesheet">
+<link href="../assets/css/owl.css" rel="stylesheet">
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="../assets/css/animate.css" rel="stylesheet">
+<link href="../assets/css/nice-select.css" rel="stylesheet">
+<link href="../assets/css/color.css" rel="stylesheet">
+<link href="../assets/css/rtl.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/responsive.css" rel="stylesheet">
+<link href="../assets/js/alert//sweetalert2.min.css" rel="stylesheet">
 
 </head>
 
@@ -52,8 +52,60 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
         <div class="layer layer-two"><span class="overlay"></span></div>        
         <div class="layer layer-three"><span class="overlay"></span></div>        
     </div>
+    <!-- main header -->
+    <header class="main-header style-four">
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="outer-box clearfix">
+                    <div class="logo-box pull-left">
+                        <figure class="logo"><a href="index.php"><img src="assets/images/logo-4.png" alt=""></a></figure>
+                    </div>
+                    <div class="menu-area pull-right clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="current dropdown"><a href="../index.php">Home</a> </li> 
+                                    <li class="dropdown"><a href="../about.php">About</a></li>
+                                    <li class="dropdown"><a href="../service.php">Services</a></li>
+                                    <li class="dropdown"><a href="../blog.php">Blog</a></li>                              
+                                    <li><a href="../contact.php">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="menu-right-content clearfix">
+                            <div class="btn-box">
+                                <a href="javascript:void(0);" class="theme-btn">My Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <?php include ('header.php');  ?>
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="auto-container">
+                <div class="outer-box clearfix">
+                    <div class="logo-box pull-left">
+                        <figure class="logo"><a href="index-2.html"><img src="assets/images/small-logo-4.png" alt=""></a></figure>
+                    </div>
+                    <div class="menu-area pull-right">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- main-header end -->
+
 
     <!-- Mobile Menu  -->
     <div class="mobile-menu">
@@ -61,7 +113,7 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
         <div class="close-btn"><i class="fas fa-times"></i></div>
         
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index-2.html"><img src="assets/images/mobile-logo.png" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="index-2.html"><img src="../assets/images/mobile-logo.png" alt="" title=""></a></div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
             <div class="contact-info">
                 <h4>Contact Info</h4>
@@ -84,7 +136,7 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
     </div><!-- End Mobile Menu -->
 
     <!--Page Title-->
-    <section class="page-title centred" style="background-image: url(assets/images/background/page-title.jpg);">
+    <section class="page-title centred" style="background-image: url(../assets/images/background/page-title.jpg);">
         <div class="auto-container">
             <div class="content-box clearfix">
                 <h1>Create Member</h1>
@@ -99,7 +151,7 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
 
     <!-- policy-section -->
     <section class="policy-section bg-color-2">
-        <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-9.png);"></div>
+        <div class="pattern-layer" style="background-image: url(../assets/images/shape/shape-9.png);"></div>
         <div class="auto-container">
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-sm-12 content-column">
@@ -245,7 +297,7 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
     <!-- policy-section end -->
 
 
-    <?php include ('footer.php');  ?>
+    <?php include ('../footer.php');  ?>
 
 
     <!--Scroll to top-->
@@ -256,27 +308,27 @@ if ($_SESSION['userid'] != '' && $_SESSION['name'] !='') {
 
 
 <!-- jequery plugins -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/custom-script.js"></script>
-<script src="assets/js/validation.js"></script>
-<script src="assets/js/jquery.fancybox.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/jquery.countTo.js"></script>
-<script src="assets/js/scrollbar.js"></script>
-<script src="assets/js/nav-tool.js"></script>
-<script src="assets/js/TweenMax.min.js"></script>
-<script src="assets/js/circle-progress.js"></script>
-<script src="assets/js/pagenav.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/owl.js"></script>
+<script src="../assets/js/wow.js"></script>
+<script src="../assets/js/custom-script.js"></script>
+<script src="../assets/js/validation.js"></script>
+<script src="../assets/js/jquery.fancybox.js"></script>
+<script src="../assets/js/appear.js"></script>
+<script src="../assets/js/jquery.countTo.js"></script>
+<script src="../assets/js/scrollbar.js"></script>
+<script src="../assets/js/nav-tool.js"></script>
+<script src="../assets/js/TweenMax.min.js"></script>
+<script src="../assets/js/circle-progress.js"></script>
+<script src="../assets/js/pagenav.js"></script>
+<script src="../assets/js/jquery.nice-select.min.js"></script>
 
 <!-- main-js -->
-<script src="assets/js/script.js"></script>
-<script src="assets/js/alert/sweet-alerts.init.js"></script>
-<script src="assets/js/alert/sweetalert2.min.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/alert/sweet-alerts.init.js"></script>
+<script src="../assets/js/alert/sweetalert2.min.js"></script>
 
 </body><!-- End of .page_wrapper -->
 

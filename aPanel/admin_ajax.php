@@ -191,8 +191,7 @@ if($action == 'customerstatics'){
     </div>
  <?php }
 
-    if($action == 'accountstatics'){ 
-    
+    if($action == 'accountstatics'){     
     $qry = "SELECT sum(deposit_amt) as total FROM `tbl_users`";
     $result = dB::sExecuteSql($qry);   ?>
     <div class="row">

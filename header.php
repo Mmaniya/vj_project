@@ -26,7 +26,7 @@
                         </nav>
                         <div class="menu-right-content clearfix">
                             <div class="btn-box">
-                                <a href="myaccount.php" class="theme-btn">My Account</a>
+                                <a href="aPanel/myaccount.php" class="theme-btn">My Account</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,6 @@
                     </div>
                     <div class="menu-area pull-right">
                         <nav class="main-menu clearfix">
-                            <!--Keep This Empty / Menu will come through Javascript-->
                         </nav>
                     </div>
                 </div>
